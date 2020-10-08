@@ -1,5 +1,7 @@
 # node-env-type
 
+** PROJECT UNDER DEVELOPMENT **
+
 Consistent and reliable approach to detecting NodeJS environment type,
 based on the value of `NODE_ENV` variable.
 
