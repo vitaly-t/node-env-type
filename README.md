@@ -44,8 +44,8 @@ Table below explains available flags and when they are set.
 | `isProd` | Production                 | `NODE_ENV` includes `prod` (case-insensitive), or not set at all. |
 <br/>
 Flags are tested in the order as shown in the table, to use only the first one found, in case there's a conflict.
- 
-Special cases:
+
+#### Special Cases
 
 * `isTest` - set not only when `NODE_ENV` includes `test` or `tst`, but also when `isUAT`, `isSIT` or `isCI`
   is set, because all those environments are essentially for testing.
