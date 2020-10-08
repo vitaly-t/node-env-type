@@ -42,7 +42,7 @@ Table below explains available flags and when they are set.
 | `isCI`   | Continuous Integration     | `NODE_ENV` includes `ci` (case-insensitive)  |
 | `isTest` | General Testing            | `NODE_ENV` includes any of: `test`, `tst`, `uat`, `sit`, `ci` (case-insensitive)|
 | `isProd` | Production                 | `NODE_ENV` includes `prod` (case-insensitive), or not set at all. |
-<br/>
+
 Flags are tested in the order as shown in the table, to use only the first one found, in case there's a conflict.
 
 #### Special Cases
