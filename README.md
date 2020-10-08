@@ -1,7 +1,6 @@
 # node-env-type
 
-Consistent and reliable approach to detecting NodeJS environment type,
-based on the value of `NODE_ENV` variable.
+Easy detection of NodeJS environment type from `NODE_ENV` variable.
 
 ## Installing
 
@@ -26,8 +25,8 @@ if(env.isDev) {
 ```ts
 const {env} = require('node-env-type');
 
-if(env.isDev) {
- // this is a DEV environment
+if(env.isProd) {
+ // this is a PROD environment
 }
 ```
 
@@ -44,7 +43,7 @@ Table below explains available flags and when they are set.
 | `isTest` | General Testing            | `NODE-ENV` includes any of: `test`, `tst`, `uat`, `sit`, `ci` (case-insensitive)|
 | `isProd` | Production                 | `NODE-ENV` includes `prod` (case-insensitive), or not set at all. |
 
-Flags are tested in the order as shown in the table, to use only the first found, in case there's a conflict.
+Flags are tested in the order as shown in the table, to use only the first one found, in case there's a conflict.
  
 Two special cases from the above:
 
