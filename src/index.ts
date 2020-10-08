@@ -51,15 +51,15 @@ function setActiveFlag(activeFlag: FlagName) {
     flags.isTest = flags.isTest || flags.isUAT || flags.isSIT || flags.isCI;
 }
 
-function refresh() {
+function refresh(): boolean {
     const s = process.env.NODE_ENV;
 
     if (!s) {
         setActiveFlag('isProd');
-        return;
+        return true;
     }
 
-    let found;
+    let found = false;
     const keys = Object.keys(flags) as FlagName[];
     for (const key of keys) {
         if (s.search(searchMap[key]) >= 0) {
@@ -77,6 +77,8 @@ function refresh() {
             flags[k] = false;
         }
     }
+
+    return found;
 }
 
 refresh();

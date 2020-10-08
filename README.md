@@ -63,3 +63,6 @@ import {env} from 'node-env-type';
 
 env.refresh(); // refresh status of all flags from the environment
 ```
+
+If the function successfully detects the environment type, it returns `true`.
+Otherwise, it returns `false`.
