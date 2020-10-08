@@ -1,6 +1,6 @@
 # node-env-type
 
-** PROJECT UNDER DEVELOPMENT **
+**PROJECT UNDER DEVELOPMENT**
 
 Consistent and reliable approach to detecting NodeJS environment type,
 based on the value of `NODE_ENV` variable.
@@ -46,11 +46,11 @@ Table below explains available flags and when they are set.
 | `isTest` | General Testing            | `NODE-ENV` includes any of: `test`, `tst`, `uat`, `sit`, `ci` (can-insensitive)|
 | `isProd` | Production                 | `NODE-ENV` includes `prod` (can-insensitive), or not set at all. |
 
-The only special cases from the above are:
+Two special cases from the above:
 
-* `isTest`; set not only when `NODE_ENV` includes `test` or `tst`, but also when `isUAT`, `isSIT` or `isCI`
-  is set, because all those environments are for testing.
-* `isProd`; set not only when `NODE_ENV` includes `prod`, but also when `NODE_ENV` is not set at all,
+* `isTest` - set not only when `NODE_ENV` includes `test` or `tst`, but also when `isUAT`, `isSIT` or `isCI`
+  is set, because all those environments are essentially for testing.
+* `isProd` - set not only when `NODE_ENV` includes `prod`, but also when `NODE_ENV` is not set at all,
   i.e. when environment is not configured, we should assume it to be production.  
 
 ## API
