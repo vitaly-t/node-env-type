@@ -1,4 +1,4 @@
-type FlagName = 'isProd' | 'isDev' | 'isUAT' | 'isSIT' | 'isCI' | 'isTest';
+type FlagName = 'isDev' | 'isUAT' | 'isSIT' | 'isCI' | 'isTest' | 'isProd';
 
 const flags: { [key in FlagName]: boolean } = {
     /**
@@ -22,7 +22,7 @@ const flags: { [key in FlagName]: boolean } = {
     isCI: false,
 
     /**
-     * General Testing Environment (includes UAT and SIT)
+     * General Testing Environment (includes UAT, SIT and CI)
      */
     isTest: false,
 
@@ -53,20 +53,29 @@ function setActiveFlag(activeFlag: FlagName) {
 
 function refresh() {
     const s = process.env.NODE_ENV;
-    let found;
 
-    if (s) {
-        const keys = Object.keys(flags) as FlagName[];
-        for (const key of keys) {
-            if (s.search(searchMap[key]) >= 0) {
-                found = true;
-                setActiveFlag(key);
-                break;
-            }
+    if (!s) {
+        setActiveFlag('isProd');
+        return;
+    }
+
+    let found;
+    const keys = Object.keys(flags) as FlagName[];
+    for (const key of keys) {
+        if (s.search(searchMap[key]) >= 0) {
+            found = true;
+            setActiveFlag(key);
+            break;
         }
     }
+
     if (!found) {
-        setActiveFlag('isProd');
+        // the environment is set to something we cannot recognize;
+
+        // we set all flags to false:
+        for (const k of keys) {
+            flags[k] = false;
+        }
     }
 }
 
