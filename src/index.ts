@@ -72,7 +72,7 @@ function refresh(): boolean {
     if (!found) {
         // the environment is set to something we cannot recognize;
 
-        // we set all flags to false:
+        // set all flags to false:
         for (const k of keys) {
             flags[k] = false;
         }
@@ -81,7 +81,7 @@ function refresh(): boolean {
     return found;
 }
 
-refresh();
+refresh(); // set all flags from start;
 
 export const env = {
     ...flags,

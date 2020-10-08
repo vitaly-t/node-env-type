@@ -61,8 +61,13 @@ to refresh flags from the environment without restarting the process.
 ```ts
 import {env} from 'node-env-type';
 
-env.refresh(); // refresh status of all flags from the environment
+if(env.refresh()) {
+    // successfully recognized the environment;
+    // each flag updated from NODE_ENV
+} else {
+    // failed to recognize the environment;
+    // each flag is set to false
+} 
 ```
 
-If the function successfully detects the environment type, it returns `true`.
-Otherwise, it returns `false`.
+

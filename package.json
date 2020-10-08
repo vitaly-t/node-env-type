@@ -1,6 +1,6 @@
 {
   "name": "node-env-type",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "NodeJS Environment Type detection.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
