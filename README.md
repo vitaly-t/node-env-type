@@ -37,18 +37,18 @@ Table below explains available flags and when they are set.
 
 | Flag     |      Environment           |  Condition |
 |:--------:|:--------------------------:|:-----------|
-| `isDev`  | Development                | `NODE-ENV` contains `dev` (can-insensitive) |
-| `isUAT`  | User Acceptance Testing    | `NODE-ENV` contains `uat` (can-insensitive) |
-| `isSIT`  | System Integration Testing | `NODE-ENV` contains `sit` (can-insensitive) |
-| `isCI`   | Continuous Integration     | `NODE-ENV` contains `ci` (can-insensitive)  |
-| `isTest` | General Testing            | `NODE-ENV` contains any of: `test`, `tst`, `uat`, `sit`, `ci` (can-insensitive)|
-| `isProd` | Production                 | `NODE-ENV` contains `prod` (can-insensitive), or not set at all. |
+| `isDev`  | Development                | `NODE-ENV` includes `dev` (can-insensitive) |
+| `isUAT`  | User Acceptance Testing    | `NODE-ENV` includes `uat` (can-insensitive) |
+| `isSIT`  | System Integration Testing | `NODE-ENV` includes `sit` (can-insensitive) |
+| `isCI`   | Continuous Integration     | `NODE-ENV` includes `ci` (can-insensitive)  |
+| `isTest` | General Testing            | `NODE-ENV` includes any of: `test`, `tst`, `uat`, `sit`, `ci` (can-insensitive)|
+| `isProd` | Production                 | `NODE-ENV` includes `prod` (can-insensitive), or not set at all. |
 
 The only special cases from the above are:
 
-* `isTest`; set not only when `NODE_ENV` contains `test` or `tst`, but also when `isUAT`, `isSIT` or `isCI`
+* `isTest`; set not only when `NODE_ENV` includes `test` or `tst`, but also when `isUAT`, `isSIT` or `isCI`
   is set, because all those environments are for testing.
-* `isProd`; set not only when `NODE_ENV` contains `prod`, but also when `NODE_ENV` is not set at all,
+* `isProd`; set not only when `NODE_ENV` includes `prod`, but also when `NODE_ENV` is not set at all,
   i.e. when environment is not configured, we should assume it to be production.  
 
 ## API
