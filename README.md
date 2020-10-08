@@ -37,13 +37,15 @@ Table below explains available flags and when they are set.
 
 | Flag     |      Environment           |  Condition |
 |:--------:|:--------------------------:|:-----------|
-| `isDev`  | Development                | `NODE-ENV` includes `dev` (can-insensitive) |
-| `isUAT`  | User Acceptance Testing    | `NODE-ENV` includes `uat` (can-insensitive) |
-| `isSIT`  | System Integration Testing | `NODE-ENV` includes `sit` (can-insensitive) |
-| `isCI`   | Continuous Integration     | `NODE-ENV` includes `ci` (can-insensitive)  |
-| `isTest` | General Testing            | `NODE-ENV` includes any of: `test`, `tst`, `uat`, `sit`, `ci` (can-insensitive)|
-| `isProd` | Production                 | `NODE-ENV` includes `prod` (can-insensitive), or not set at all. |
+| `isDev`  | Development                | `NODE-ENV` includes `dev` (case-insensitive) |
+| `isUAT`  | User Acceptance Testing    | `NODE-ENV` includes `uat` (case-insensitive) |
+| `isSIT`  | System Integration Testing | `NODE-ENV` includes `sit` (case-insensitive) |
+| `isCI`   | Continuous Integration     | `NODE-ENV` includes `ci` (case-insensitive)  |
+| `isTest` | General Testing            | `NODE-ENV` includes any of: `test`, `tst`, `uat`, `sit`, `ci` (case-insensitive)|
+| `isProd` | Production                 | `NODE-ENV` includes `prod` (case-insensitive), or not set at all. |
 
+Flags are tested in the order as shown in the table, to use only the first found, in case there's a conflict.
+ 
 Two special cases from the above:
 
 * `isTest` - set not only when `NODE_ENV` includes `test` or `tst`, but also when `isUAT`, `isSIT` or `isCI`
