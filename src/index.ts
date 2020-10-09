@@ -51,8 +51,15 @@ function setActiveFlag(activeFlag: FlagName) {
     flags.isTest = flags.isTest || flags.isUAT || flags.isSIT || flags.isCI;
 }
 
-function refresh(): boolean {
-    const s = process.env.NODE_ENV;
+/**
+ * Refreshes all flags from `NODE_ENV` variable.
+ *
+ * @param otherVariable
+ * Optional override, to use an alternative variable.
+ */
+function refresh(otherVariable?: string): boolean {
+
+    const s = otherVariable || process.env.NODE_ENV;
 
     if (!s) {
         setActiveFlag('isProd');

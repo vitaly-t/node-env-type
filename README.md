@@ -70,4 +70,17 @@ if(env.refresh()) {
 } 
 ```
 
+And if, for some reasons, you decide to read configuration from a different place, rather than
+the standard `NODE_ENV`, you can pass such optional string to the function:
 
+```ts
+const otherVar = 'dev1.pc'; // just some other value
+
+if(env.refresh(otherVar)) {
+    // successfully recognized the environment;
+    // each flag updated from otherVar
+} else {
+    // failed to recognize the environment;
+    // each flag is set to false
+} 
+```
