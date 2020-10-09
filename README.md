@@ -2,6 +2,10 @@
 
 Easy detection of NodeJS environment type from `NODE_ENV` variable.
 
+This library is 100% compatible with the standard `development`/`test`/`production` approach,
+with a friendlier interface, while also supporting a more verbose syntax, to allow for
+a flexible environment configuration.
+
 ## Installing
 
 ```
